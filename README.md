@@ -32,18 +32,6 @@ npm install
 npm run dev                 # runs on :3000
 ```
 
-## API Keys needed
-- `VIRUSTOTAL_API_KEY`   → https://virustotal.com (free tier)
-- `GOOGLE_SAFEBROWSING_KEY` → https://console.cloud.google.com
-- `GROQ_API_KEY`   → https://console.groq.com
 
-## Architecture
-```
-React Frontend (3000)
-        ↓
-Express Backend (4000)
-    ↙       ↘
-VirusTotal   Flask ML (5000)
-Google Safe  Rule Engine
 Browsing API Groq AI
 ```
