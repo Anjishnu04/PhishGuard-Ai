@@ -13,10 +13,8 @@ services:
         sync: false        # set manually in Render dashboard
       - key: GROQ_MODEL
         value: llama-3.3-70b-versatile
-      - key: VIRUSTOTAL_API_KEY
-        sync: false
-      - key: GOOGLE_SAFEBROWSING_KEY
-        sync: false
+      - key: URLSCAN_API_KEY
+        sync: false        # set manually in Render dashboard
       - key: ML_SERVICE_URL
         value: https://phishguard-ml.onrender.com
       - key: FRONTEND_URL
