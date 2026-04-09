@@ -31,7 +31,3 @@ cd frontend
 npm install
 npm run dev                 # runs on :3000
 ```
-
-
-Browsing API Groq AI
-```
