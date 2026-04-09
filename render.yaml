@@ -1,0 +1,34 @@
+services:
+  # Node.js Backend
+  - type: web
+    name: phishguard-backend
+    runtime: node
+    rootDir: backend
+    buildCommand: npm install
+    startCommand: node server.js
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: GROQ_API_KEY
+        sync: false        # set manually in Render dashboard
+      - key: GROQ_MODEL
+        value: llama-3.3-70b-versatile
+      - key: VIRUSTOTAL_API_KEY
+        sync: false
+      - key: GOOGLE_SAFEBROWSING_KEY
+        sync: false
+      - key: ML_SERVICE_URL
+        value: https://phishguard-ml.onrender.com
+      - key: FRONTEND_URL
+        value: https://phishguard.vercel.app
+
+  # Python ML Service
+  - type: web
+    name: phishguard-ml
+    runtime: python
+    rootDir: ml
+    buildCommand: pip install -r requirements.txt && python train.py
+    startCommand: gunicorn -w 2 -b 0.0.0.0:5000 app:app
+    envVars:
+      - key: PYTHON_VERSION
+        value: "3.11"
